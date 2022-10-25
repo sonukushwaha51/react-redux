@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import './styles.css';
+import React from 'react';
+import Contact from './components/Contact';
+import Category from './components/Category';
+import Offers from './components/Offers';
+import BuyingGuides from './components/BuyingGuides';
+import Home from './components/Home';
+import {BrowserRouter, Routes,Route } from 'react-router-dom';
 
+import {connect} from 'react-redux';
+
+export const mapStateToProps = (state) => {
+  return {
+    timer : state.timer
+  }
+  
+}
 function App() {
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+     <BrowserRouter>
+      <Routes>
+          <Route path='/contactus' element={<Contact />} />
+          <Route path="/category" element={<Category />}></Route>
+          <Route path="/offers" element={<Offers />}></Route>
+          <Route path="/buying-guides" element={<BuyingGuides />}></Route>
+          <Route path="/product" ></Route>
+          <Route path="*" element={<Home/>} />
+        </Routes>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
