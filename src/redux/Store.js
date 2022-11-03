@@ -1,10 +1,13 @@
-import { initialState, MyReducer } from "./reducers";
+import {  MyReducer } from "./reducers";
 import {configureStore} from '@reduxjs/toolkit';
+import { initialState } from "./state/MyState";
 
 function ConfigureStore() {
     
     const store = configureStore(
-        MyReducer,initialState
+        {
+            reducer : MyReducer
+        },initialState
     )
     return store;
 }

@@ -7,15 +7,19 @@ import Offers from './components/Offers';
 import BuyingGuides from './components/BuyingGuides';
 import Home from './components/Home';
 import {BrowserRouter, Routes,Route } from 'react-router-dom';
-
+import { incrementTimerAction, decrementTimerAction } from './redux/actions/createActions';
 import {connect} from 'react-redux';
 
-export const mapStateToProps = (state) => {
-  return {
-    timer : state.timer
-  }
+// export const mapStateToProps = (state) => {
+//   return {
+//     timer : state.timer
+//   }
   
-}
+// }
+// export const mapDispatchToProps = (dispatch) => ({ 
+//   incrementTimerAction :  dispatch(incrementTimerAction()),
+//   decrementTimerAction :  dispatch(decrementTimerAction())
+// })
 function App() {
   
   
@@ -35,4 +39,4 @@ function App() {
   );
 }
 
-export default connect(mapStateToProps)(App);
+export default App;
