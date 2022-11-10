@@ -1,15 +1,9 @@
-import {  MyReducer } from "./reducers";
 import {configureStore} from '@reduxjs/toolkit';
-import { initialState } from "./state/MyState";
+import { combineReducer} from './reducers';
+
 
 function ConfigureStore() {
-    
-    const store = configureStore(
-        {
-            reducer : MyReducer
-        },initialState
-    )
+    const store = configureStore({reducer : combineReducer});
     return store;
 }
-
 export default ConfigureStore;

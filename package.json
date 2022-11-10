@@ -16,7 +16,8 @@
     "reactstrap": "^9.1.4",
     "redux": "^4.2.0",
     "redux-toolkit": "^1.1.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.74.0"
   },
   "scripts": {
     "start": "set PORT=3006 && react-scripts start",

@@ -7,8 +7,6 @@ import Offers from './components/Offers';
 import BuyingGuides from './components/BuyingGuides';
 import Home from './components/Home';
 import {BrowserRouter, Routes,Route } from 'react-router-dom';
-import { incrementTimerAction, decrementTimerAction } from './redux/actions/createActions';
-import {connect} from 'react-redux';
 
 // export const mapStateToProps = (state) => {
 //   return {

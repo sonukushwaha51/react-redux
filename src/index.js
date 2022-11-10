@@ -6,11 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ConfigureStore from './redux/Store';
 import {Provider} from 'react-redux';
-import { MyReducer } from './redux/reducers';
-import { initialState } from './redux/state/MyState';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = ConfigureStore(MyReducer,initialState);
+
+const store = ConfigureStore();
 root.render(
   <React.StrictMode>
     <Provider store = {store}>

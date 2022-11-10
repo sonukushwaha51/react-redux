@@ -1,16 +1,30 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { Button } from "reactstrap";
 import { incrementTimerAction, decrementTimerAction} from "../redux/actions/createActions";
+import { connect } from "react-redux";
 
-function BestSellers() {
-    const displayTimer = useSelector((state) => state.timer)
-    const dispatch = useDispatch();
-    const incrementTimer = () => {
-        dispatch({ type: incrementTimerAction.type })
+const mapStateToProps = (state) => {
+    return {
+        timer: state.timerReducer.timer
     }
-    const decrementTimer = () => {dispatch({ type: decrementTimerAction.type })}
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        incrementTimer: () => dispatch(incrementTimerAction),
+        decrementTimer: () => dispatch(decrementTimerAction)
+    }
+    
+}
+function BestSellers(props) {
+    // const displayTimer = useSelector((state) => state.timer)
+    // const dispatch = useDispatch();
+    // const incrementTimer = () => {
+    //     dispatch(incrementTimerAction)
+    // }
+    // const decrementTimer = () => {dispatch(decrementTimerAction)}
 
+    
     return(
         <React.Fragment>
             <div className="container">
@@ -28,9 +42,9 @@ function BestSellers() {
                                             </div>
                                             <div className="timer-redux-demo">
                                                 <h1 className="timer-redux">We are displaying Redux timer state</h1>
-                                                <h2 className="timer-value">Timer Value: {displayTimer}</h2>
-                                                <Button color="success" onClick={incrementTimer}>Click here to Increment timer</Button>
-                                                <Button color="danger" onClick={decrementTimer}>Click here to decrement</Button>
+                                                <h2 className="timer-value">Timer Value: {props.timer}</h2>
+                                                <Button color="success" onClick={props.incrementTimer}>Click here to Increment timer</Button>
+                                                <Button color="danger" onClick={props.decrementTimer}>Click here to decrement</Button>
                                             </div>
                                         </div>
                                     </div>
@@ -44,4 +58,4 @@ function BestSellers() {
     );
 }
 
-export default BestSellers;
+export default connect(mapStateToProps,mapDispatchToProps)(BestSellers);
