@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "reactstrap";
+import { Button, Spinner } from "reactstrap";
 import { addInStock, removeFromStock } from "../redux/actions/createActions";
 import Comments from "./Comments";
 import FooterComponent from "./FooterComp";
@@ -34,7 +34,8 @@ function BuyingGuides() {
                                     <Button color="danger m-5" onClick={removeStock}>Remove from stock</Button>
                                 </div>
                                 <div className="comments">
-                                    <Comments />
+                                    <Suspense fallback={<Spinner />}><Comments /></Suspense>
+                                    
                                 </div>
                             </div>
                         </div>

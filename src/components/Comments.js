@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button} from "reactstrap";
-import { addComments } from "../redux/actions/createActions";
+import { addComments, fetchComments } from "../redux/actions/createActions";
 
 function Comments() {
 
     const commentsState = useSelector(state => state.commentReducer.comments)
-    console.log(commentsState)
+    const loadCommentState = useSelector(state => state.loadComment.loadcomments)
     const dispatch = useDispatch();
     const [fullName, setFullName] = useState("")
     const [newComment,setNewComment] = useState("")
     const addComment = () => dispatch(
         addComments(fullName,newComment)
     )
+    const loadComment = () => {
+        dispatch(fetchComments())
+    }
     return(
         <React.Fragment>
             <div className="col-lg-12 col-md-12">
@@ -27,6 +30,17 @@ function Comments() {
                             <Button color="success" onClick={addComment}>Add comment</Button>
                             <Button color="danger">Cancel</Button>
                         <div className="print-comments">
+                            <div>
+                                <Button color="primary" onClick={loadComment}>LOAD COMMENTS</Button>
+                                {loadCommentState.map(lc => {
+                                    return(
+                                        <div key={lc.id}>
+                                            <h2>{lc.title}</h2>
+                                            <p>{lc.body}</p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
                             {commentsState.map((pr) => {
                                 return (
                                     <div key={pr.id}>

@@ -6,9 +6,13 @@ export const stock = {
     value: 500
 }
 
-export const comm = {comments : [{
-    id : 0,
-    names : "Sonu",  
-    comment: "Worst book"
-}]
+export const comm = {comments : []
+}
+
+export const result = {
+    value : 0
+}
+export const loadedComments = {
+    loadcomments : [],
+    errors : ""
 }

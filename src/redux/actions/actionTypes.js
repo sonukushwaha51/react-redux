@@ -3,7 +3,14 @@ const actionTypes = {
     decrementTimer : "DECREMENT_TIMER",
     addStock: "ADD_STOCK",
     removeStock: "REMOVE_STOCK",
-    addComment: "ADD_COMMENT"
+    addComment: "ADD_COMMENT",
+    addition : "ADD",
+    substraction : "SUB",
+    multiplication : "MUL",
+    division : "DIV",
+    modulus : "MOD",
+    loadComment: "LOAD_COMMENT"
+
 }
 
 export default actionTypes;
